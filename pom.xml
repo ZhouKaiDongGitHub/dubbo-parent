@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>dubbo-2.6-demo</module>
+        <module>dubbo-2.7-demo</module>
     </modules>
 
 

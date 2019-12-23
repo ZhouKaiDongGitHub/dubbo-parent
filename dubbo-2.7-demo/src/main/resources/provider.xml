@@ -3,15 +3,12 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
-
-    <!--建议应用名称或者服务接口名称-->
+    <!--provide独有的 protocol provider service -->
+    <!--provide和consumer共用的 application register monitor-->
     <dubbo:application name="demo-provider"/>
-    <!--Zookeeper,redis,simple等等-->
     <!--<dubbo:registry address="zookeeper://127.0.0.1:2181"/>-->
     <dubbo:config-center address="zookeeper://127.0.0.1:2181"/>
-    <!--<dubbo:protocol name="dubbo" port="20890"/>-->
-
-    <bean id="helloService" class="com.luban.provider.HelloServiceImpl"/>
-    <!--暴露服务，默认接口名称-->
-    <dubbo:service interface="com.luban.api.HelloService" ref="helloService"/>
+    <dubbo:protocol name="dubbo" port="20890"/>
+    <bean id="demoService" class="com.luban.xml.HelloServiceImpl"/>
+    <dubbo:service interface="com.luban.xml.HelloService" ref="demoService"/>
 </beans>
